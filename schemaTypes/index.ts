@@ -1569,7 +1569,7 @@ export const collectPanemType = defineType({
     }),
     defineField({name: 'operation', type: 'string', title: 'Operation', hidden: false}),
     defineField({name: 'placeholder', type: 'string', title: 'Placeholder', hidden: false}),
-    defineField({name: 'icon', type: 'file', title: 'Icon', hidden: false}),
+    defineField({name: 'icon', type: 'image', title: 'Icon', hidden: false}),
     defineField({
       name: 'software',
       type: 'string',
