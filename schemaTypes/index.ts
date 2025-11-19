@@ -613,7 +613,7 @@ export const logoType = defineType({
     }),
     defineField({
       name: 'image',
-      type: 'file',
+      type: 'image',
       title: 'Image',
       hidden: false,
       description: 'Recommended size: 100x40px, Recommended format: SVG',
@@ -765,7 +765,7 @@ export const socialIconType = defineType({
     }),
     defineField({
       name: 'icon',
-      type: 'file',
+      type: 'image',
       title: 'Icon',
       hidden: false,
       validation: (Rule) => Rule.required(),
@@ -942,7 +942,7 @@ export const indexPageType = defineType({
     }),
     defineField({
       name: 'h1Image',
-      type: 'file',
+      type: 'image',
       title: 'H1 Image',
       hidden: false,
       validation: (Rule) => Rule.required(),
@@ -1278,7 +1278,7 @@ export const postBannerType = defineType({
     }),
     defineField({
       name: 'bannerImage',
-      type: 'file',
+      type: 'image',
       title: 'Banner Image',
       hidden: false,
       description: 'Recommended size: 688x560px',
