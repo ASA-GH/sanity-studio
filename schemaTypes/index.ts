@@ -1043,7 +1043,7 @@ export const indexPageBannerType = defineType({
     }),
     defineField({
       name: 'bannerImage',
-      type: 'file',
+      type: 'image',
       title: 'Banner Image',
       hidden: false,
       description: 'Recommended size: 688x560px',
