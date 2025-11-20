@@ -23,7 +23,7 @@ export const jumpLinkType = defineType({
     }),
     defineField({
       name: 'linkTop',
-      type: 'slug',
+      type: 'string',
       title: 'Link top',
       hidden: false,
       description: 'Please enter anchor id. Example: link-top',
