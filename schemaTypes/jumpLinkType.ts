@@ -14,14 +14,6 @@ export const jumpLinkType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'reference',
-      type: 'slug',
-      title: 'Reference',
-      hidden: false,
-      description: 'Please enter anchor id. Example: link-top',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'linkTop',
       type: 'string',
       title: 'Link top',
@@ -43,10 +35,10 @@ export const jumpLinkType = defineType({
       reference: 'reference.current',
       linkTop: 'linkTop',
     },
-    prepare(selection: {title?: string; reference?: string}) {
-      const {title, reference} = selection
+    prepare(selection: {title?: string; linkTop?: string}) {
+      const {title, linkTop} = selection
       return {
-        title: title || reference,
+        title: title || linkTop,
       }
     },
   } as PreviewConfig,
