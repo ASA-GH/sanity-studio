@@ -7,6 +7,13 @@ export const jumpLinkType = defineType({
   description: '',
   fields: [
     defineField({
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      hidden: false,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'reference',
       type: 'slug',
       title: 'Reference',
