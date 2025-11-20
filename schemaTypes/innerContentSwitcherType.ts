@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity';
+import {defineField, defineType} from 'sanity'
 
 export const innerContentSwitcherType = defineType({
   type: 'document',
@@ -86,7 +86,7 @@ export const innerContentSwitcherType = defineType({
                   {type: 'script'},
                   {type: 'blogPostEmbeddedVideo'},
                   {type: 'postBanner'},
-                  // {type: 'jumpLink'},
+                  {type: 'jumpLink'},
                   {type: 'contentTable'},
                   {type: 'commonPaywall'},
                   {type: 'pricing'},
@@ -221,4 +221,4 @@ export const innerContentSwitcherType = defineType({
   ],
   preview: {select: {title: 'title'}},
   readOnly: ({document}) => (document == null ? void 0 : document.contentfulArchived) === !0,
-});
+})

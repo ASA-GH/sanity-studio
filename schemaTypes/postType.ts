@@ -234,7 +234,7 @@ export const postType = defineType({
                   {type: 'script'},
                   {type: 'blogPostEmbeddedVideo'},
                   {type: 'postBanner'},
-                  // {type: 'jumpLink'},
+                  {type: 'jumpLink'},
                   {type: 'contentTable'},
                   {type: 'commonPaywall'},
                   {type: 'pricing'},
@@ -320,4 +320,4 @@ export const postType = defineType({
   ],
   preview: {select: {title: 'name'}},
   readOnly: ({document}) => (document == null ? void 0 : document.contentfulArchived) === !0,
-});
+})
