@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity';
+import {defineField, defineType, PreviewConfig} from 'sanity'
 
 export const jumpLinkType = defineType({
   type: 'document',
@@ -6,13 +6,13 @@ export const jumpLinkType = defineType({
   title: 'Jump Link',
   description: '',
   fields: [
-    // defineField({
-    //   name: 'title',
-    //   type: 'string',
-    //   title: 'Title',
-    //   hidden: false,
-    //   validation: (Rule) => Rule.required(),
-    // }),
+    defineField({
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      hidden: false,
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'reference',
       type: 'slug',
@@ -21,14 +21,14 @@ export const jumpLinkType = defineType({
       description: 'Please enter anchor id. Example: link-top',
       validation: (Rule) => Rule.required(),
     }),
-    // defineField({
-    //   name: 'linkTop',
-    //   type: 'string',
-    //   title: 'Link top',
-    //   hidden: false,
-    //   description: 'Please enter anchor id. Example: link-top',
-    //   validation: (Rule) => Rule.required(),
-    // }),
+    defineField({
+      name: 'linkTop',
+      type: 'string',
+      title: 'Link top',
+      hidden: false,
+      description: 'Please enter anchor id. Example: link-top',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       type: 'boolean',
       description:
@@ -37,6 +37,18 @@ export const jumpLinkType = defineType({
       readOnly: true,
     }),
   ],
-  preview: {select: {title: 'reference.current'}},
+  preview: {
+    select: {
+      title: 'title',
+      reference: 'reference.current',
+      linkTop: 'linkTop',
+    },
+    prepare(selection: {title?: string; reference?: string}) {
+      const {title, reference} = selection
+      return {
+        title: title || reference,
+      }
+    },
+  } as PreviewConfig,
   readOnly: ({document}) => (document == null ? void 0 : document.contentfulArchived) === !0,
-});
+})
