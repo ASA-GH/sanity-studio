@@ -32,7 +32,6 @@ export const jumpLinkType = defineType({
   preview: {
     select: {
       title: 'title',
-      reference: 'reference.current',
       linkTop: 'linkTop',
     },
     prepare(selection: {title?: string; linkTop?: string}) {
