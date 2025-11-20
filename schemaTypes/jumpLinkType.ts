@@ -6,13 +6,13 @@ export const jumpLinkType = defineType({
   title: 'Jump Link',
   description: '',
   fields: [
-    defineField({
-      name: 'title',
-      type: 'string',
-      title: 'Title',
-      hidden: false,
-      validation: (Rule) => Rule.required(),
-    }),
+    // defineField({
+    //   name: 'title',
+    //   type: 'string',
+    //   title: 'Title',
+    //   hidden: false,
+    //   validation: (Rule) => Rule.required(),
+    // }),
     defineField({
       name: 'reference',
       type: 'slug',
@@ -21,14 +21,14 @@ export const jumpLinkType = defineType({
       description: 'Please enter anchor id. Example: link-top',
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'linkTop',
-      type: 'string',
-      title: 'Link top',
-      hidden: false,
-      description: 'Please enter anchor id. Example: link-top',
-      validation: (Rule) => Rule.required(),
-    }),
+    // defineField({
+    //   name: 'linkTop',
+    //   type: 'string',
+    //   title: 'Link top',
+    //   hidden: false,
+    //   description: 'Please enter anchor id. Example: link-top',
+    //   validation: (Rule) => Rule.required(),
+    // }),
     defineField({
       type: 'boolean',
       description:
