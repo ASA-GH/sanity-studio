@@ -15,6 +15,14 @@ export const jumpLinkType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'linkTop',
+      type: 'slug',
+      title: 'Link top',
+      hidden: false,
+      description: 'Please enter anchor id. Example: link-top',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       type: 'boolean',
       description:
         'If this document was archived on Contentful at the time of export, the document will be in a read-only state.',
