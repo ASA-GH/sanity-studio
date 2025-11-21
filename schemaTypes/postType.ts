@@ -260,7 +260,7 @@ export const postType = defineType({
               to: [
                 {type: 'inlineLink'},
                 {type: 'innerContentSwitcher'},
-                // {type: 'jumpLink'}
+                {type: 'jumpLink'}
               ],
             },
           ],
@@ -275,7 +275,7 @@ export const postType = defineType({
             {type: 'blogPostMobileBanner'},
             {type: 'blogPostWebinarBanner'},
             {type: 'innerContentSwitcher'},
-            // {type: 'jumpLink'},
+            {type: 'jumpLink'},
             {type: 'contentTable'},
           ],
         },

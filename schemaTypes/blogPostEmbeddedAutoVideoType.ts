@@ -1,5 +1,14 @@
 import {defineField, defineType} from 'sanity';
 
+const validateYouTubeEmbedUrl = (url: string | undefined) => {
+  if (!url) return true;
+  const youtubeEmbedRegex = /^https?:\/\/(?:www\.)?youtube\.com\/embed\/[a-zA-Z0-9_-]+/;
+  if (!youtubeEmbedRegex.test(url)) {
+    return 'Please enter a valid YouTube embed URL (format: https://www.youtube.com/embed/VIDEO_ID)';
+  }
+  return true;
+};
+
 export const blogPostEmbeddedAutoVideoType = defineType({
   type: 'document',
   name: 'blogPostEmbeddedAutoVideo',
@@ -13,22 +22,6 @@ export const blogPostEmbeddedAutoVideoType = defineType({
       hidden: false,
       validation: (Rule) => Rule.required(),
     }),
-    // defineField({
-    //   name: 'youtubeEmbedUrl',
-    //   type: 'url',
-    //   title: 'Youtube Embed URL',
-    //   hidden: false,
-    //   description: 'Please enter URL',
-    //   validation: (Rule) =>
-    //     Rule.required()
-    //       .regex(/\bembed\S*\b/, {invert: false})
-    //       .uri({
-    //         allowCredentials: true,
-    //         allowRelative: true,
-    //         relativeOnly: false,
-    //         scheme: [/^http/, /^https/],
-    //       }),
-    // }),
     defineField({
       name: 'youtubeEmbedUrl',
       type: 'url',
@@ -36,12 +29,14 @@ export const blogPostEmbeddedAutoVideoType = defineType({
       hidden: false,
       description: 'Please enter a valid YouTube embed URL (must contain "embed")',
       validation: (Rule) =>
-        Rule.required().custom((url) => {
-          if (url && !url.includes('embed')) {
-            return 'URL must contain "embed"'
-          }
-          return true
-        }),
+        Rule.required()
+          .uri({
+            allowCredentials: true,
+            allowRelative: true,
+            relativeOnly: false,
+            scheme: [/^http/, /^https/],
+          })
+          .custom(validateYouTubeEmbedUrl),
     }),
     defineField({
       type: 'boolean',
@@ -52,5 +47,5 @@ export const blogPostEmbeddedAutoVideoType = defineType({
     }),
   ],
   preview: {select: {title: 'title'}},
-  readOnly: ({document}) => (document == null ? void 0 : document.contentfulArchived) === !0,
+  readOnly: ({document}) => (document?.contentfulArchived) === true,
 });
